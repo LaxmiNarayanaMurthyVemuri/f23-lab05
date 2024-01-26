@@ -53,7 +53,7 @@ public class InheritanceSortedIntList implements IntegerList {
         boolean success = false;
 
         for (int i = 0; i < all.size(); i++) {
-            success |= this.add(all.get(i));
+            success |= add(all.get(i));
         }
 
         return success;
