@@ -25,10 +25,10 @@ public class InheritanceSortedIntList implements IntegerList {
 
     private int findInsertionPoint(int num) {
         int start = 0;
-        int end = list.size();
+        int end = totalElementsAdded;
 
         while (start < end) {
-            int mid = start + (end - start) / 2;
+            int mid = (start + end) / 2;
             if (num <= list.get(mid)) {
                 end = mid;
             } else {
@@ -50,14 +50,21 @@ public class InheritanceSortedIntList implements IntegerList {
     }
 
     public boolean addAll(IntegerList all) {
-        boolean success = false;
-
+        // System.out.println(all);
         for (int i = 0; i < all.size(); i++) {
-            success |= add(all.get(i));
+            int num = all.get(i);
+            int insertionPoint = findInsertionPoint(num);
+        
+            // Add the element at the found index
+            System.out.println(list + " " + insertionPoint + " " + num);
+            list.add(insertionPoint, num);
+            totalElementsAdded++;
         }
 
-        return success;
+        return true;
     }
+
+    
 
     public int getTotalAdded() {
         return this.totalElementsAdded;
@@ -78,6 +85,15 @@ public class InheritanceSortedIntList implements IntegerList {
 
     public int size() {
         return list.size();
+    }
+
+    public String toString() {
+        for (int i = 0; i < totalElementsAdded; i++) {
+            System.out.print(list.get(i));
+            System.out.print(",");
+        }
+        return "";
+
     }
 
 

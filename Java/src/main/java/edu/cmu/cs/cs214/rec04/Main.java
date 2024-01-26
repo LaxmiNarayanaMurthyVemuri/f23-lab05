@@ -35,7 +35,8 @@ public class Main {
         // add 2 elements to a second list.
         list2.add(3);
         list2.add(0);
-
+        printList(list2);
+        printList(list1);
 
         // add the first list (5 elements) to our second list (2 elements).
         list2.addAll(list1);
@@ -49,10 +50,6 @@ public class Main {
      * @param list IntegerList to be printed out.
      */
     private static void printList(IntegerList list) {
-        for (int i = 0; i < list.size(); i++) {
-            System.out.print(list.get(i));
-            System.out.print(", ");
-        }
-        System.out.println();
+        System.out.println(list.toString());
     }
 }
